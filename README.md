@@ -244,3 +244,89 @@ cmVmVjZrc3gteE11OTRQLWZEZzImYz0xNjQzMTIyNDE1ODI1NDI5MTU2Ij48L2E+PC9ib2R5Pjxj
 aGF0Z3B0LXNpZGViYXIgZGF0YS1ncHRzLXRoZW1lPSJsaWdodCI+PC9jaGF0Z3B0LXNpZGViYXI+
 PC9odG1sPg0K
 --=-eZCfFk7+7CDKEZGVedFicQTUi1BSmPgBy3WKzQ==--
+# Task2-Analyze-a-Phishing-Email-Sample.
+This repository includes a phishing email sample and a detailed analysis report focused on identifying phishing indicators using multiple tools—including EML Analyzer ,VirusTotal.
+
+1. MxToolbox Email Header Analyzer: Converts raw headers into readable format and highlights SPF/DKIM results.
+link : ( https://mxtoolbox.com)
+                                or
+EML Analyzer : Converts raw headers into readable format and highlights SPF/DKIM results.
+link :(https://eml-analyzer.herokuapp.com/)
+
+3. VirusTotal Documentation: Detailed overview of how VirusTotal API can be used for URL/file scanning.(https://www.virustotal.com)
+
+Why Include VirusTotal?
+
+VirusTotal is a widely used service for scanning URLs and attachments using multiple antivirus engines and sandbox environments.
+
+When provided with a link or file, VirusTotal returns a threat rating and detection summary, enabling you to determine if a phishing URL is associated with known malicious campaigns.
+
+Automating this step (e.g., via API or integration tools like n8n) ensures consistent and reliable tracking of phishing threats.
+
+
+tep-by-Step in Simple Words
+🧾 Step 1: Get the email
+
+Use a phishing sample email (your course or teacher may give you one, or you can use a safe public sample).
+
+Save it (do not open links or attachments).
+
+🕵️ Step 2: Check the “Email Header”
+
+The email header is like the behind-the-scenes envelope showing:
+
+Who really sent it,
+
+What path it took,
+
+Whether it passed security checks.
+
+👉 Go to mxtoolbox.com/EmailHeaders.aspx
+
+Paste the header text, click Analyze Header.
+
+Look for:
+
+SPF = fail ❌
+
+DKIM = fail ❌
+
+Domain mismatch (like “bank@example.com
+” sending from “@gmail.com”)
+
+That’s a clear phishing sign!
+
+🌐 Step 3: Analyze any links
+
+Hover (don’t click!) over links in the email:
+
+Does it say www.bank.com but actually points to bank-login.xyz?
+That’s fake.
+
+Then, copy the link → go to www.virustotal.com
+ → paste it → see if it’s dangerous.
+
+📎 Step 4: Check attachments (if any)
+
+If there’s an attachment (like “Invoice.zip” or “Payment.pdf”):
+
+Don’t open it.
+
+Instead, upload it to VirusTotal → it will scan it for malware.
+
+✍️ Step 5: Write your findings (Report)
+
+In your report (Word or Markdown file):
+
+Write what you found (example: SPF fail, fake link, urgent language)
+
+Explain why it’s dangerous (example: tries to trick users into clicking fake site)
+
+Add screenshots of your analysis.
+
+Example:
+
+Finding	Meaning
+SPF=Fail	Sender address is fake
+Link → bank-login.xyz	Fake website pretending to be a bank
+Urgent tone in email	Social engineering trick
